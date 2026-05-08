@@ -172,54 +172,52 @@ export default function App() {
         </div>
       </section>
 
-     <section id="about" className="relative overflow-hidden px-5 py-24 sm:px-8 lg:px-12">
-<div className="absolute inset-y-0 right-0 hidden w-[65%] lg:block">
-  <img
-    src={aboutBar}
-    alt="Dark cafe bar interior"
-    className="h-full w-full object-cover grayscale contrast-125 brightness-50 opacity-55"
-    style={{
-      WebkitMaskImage:
-        "linear-gradient(to right, transparent 0%, black 28%, black 100%)",
-      maskImage:
-        "linear-gradient(to right, transparent 0%, black 28%, black 100%)",
-    }}
-  />
-  <img
-    src={aboutBar}
-    alt="Dark cafe bar interior"
-    className="h-full w-full object-cover grayscale contrast-125 brightness-50 opacity-45"
-  />
-  <div className="absolute inset-0 from-[#080807] via-[#080807]/35 to-transparent" />
-  <div className="absolute inset-0 bg-[#080807]/25" />
-</div>
+     <section
+  id="about"
+  className="relative overflow-hidden px-5 py-28 sm:px-8 lg:px-12"
+>
+  <div className="absolute inset-y-0 right-0 hidden w-[70%] lg:block">
+    <img
+      src={aboutBar}
+      alt="Dark cafe bar interior"
+      className="h-full w-full object-cover grayscale contrast-125 brightness-50 opacity-60"
+      style={{
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent 0%, transparent 12%, black 45%, black 100%)",
+        maskImage:
+          "linear-gradient(to right, transparent 0%, transparent 12%, black 45%, black 100%)",
+      }}
+    />
+    <div className="absolute inset-0 bg-[#080807]/45" />
+  </div>
 
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+  <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+    <div className="hidden lg:block" />
 
+    <div className="max-w-3xl">
+      <p className="mb-6 text-xs uppercase tracking-[0.4em] text-[#f4efe5]/50">
+        About the room
+      </p>
 
-          <div>
-            <p className="mb-6 text-xs uppercase tracking-[0.4em] text-[#f4efe5]/50">
-              About the room
-            </p>
-            <h2 className="font-serif italic text-4xl leading-[1] sm:text-5xl lg:text-6xl">
-              Built for silence, shadow, warm and the first bitter sip.
-            </h2>
-            <div className="mt-10 grid gap-8 border-t border-[#f4efe5]/15 pt-8 md:grid-cols-2">
-              <p className="text-sm leading-7 text-[#f4efe5]/65">
-                Kuro Cafe sits behind a narrow paper door, lit by low lamps and
-                passing train light. The menu is short. The cups are warm. The
-                room leaves space for whatever follows you in.
-              </p>
-              <p className="text-sm leading-7 text-[#f4efe5]/65">
-                Every detail is reduced to contrast: black ceramic, off-white
-                linen, quiet service, and coffee with the patience of a final
-                panel.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <h2 className="font-serif italic text-4xl leading-[1] sm:text-5xl lg:text-6xl">
+        Built for silence, shadow, and the first bitter sip.
+      </h2>
 
+      <div className="mt-10 grid gap-8 border-t border-[#f4efe5]/15 pt-8 md:grid-cols-2">
+        <p className="text-sm leading-7 text-[#f4efe5]/65">
+          Kuro Cafe sits behind a narrow paper door, lit by low lamps and
+          passing train light. The menu is short. The cups are warm. The room
+          leaves space for whatever follows you in.
+        </p>
+
+        <p className="text-sm leading-7 text-[#f4efe5]/65">
+          Every detail is reduced to contrast: black ceramic, off-white linen,
+          quiet service, and coffee with the patience of a final panel.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
       <section className="relative px-5 py-24 sm:px-8 lg:px-12">
         <div className="mx-auto max-w-7xl border-y border-[#f4efe5]/15 py-16">
           <blockquote className="mx-auto max-w-5xl text-center font-serif text-4xl leading-tight sm:text-6xl lg:text-7xl">
