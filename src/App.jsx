@@ -334,7 +334,7 @@ export default function App() {
           <div className="flex items-end justify-start md:justify-end">
             <motion.a
   {...buttonMotion}
-  href="mailto:hello@kuro.cafe, hanshu12yt@gmail.com"
+  href="mailto:hanshu12yt@gmail.com"
   className="inline-flex items-center justify-center border border-[#f4efe5]/25 bg-[#f4efe5]/0 px-5 py-3 text-xs uppercase tracking-[0.28em] transition-colors duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-[#f4efe5]/70 hover:bg-[#f4efe5] hover:text-[#080807] hover:shadow-[0_18px_60px_rgba(244,239,229,0.12)]"
 >
   Reserve
