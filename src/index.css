@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+/* Import Google Fonts */
+@import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap)');
+
+/* Basic glassmorphism style, you might want to adjust specifics */
+.bg-glassmorphism {
+  background: rgba(18, 18, 18, 0.4); /* black with transparency */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(224, 224, 224, 0.1); /* off-white with transparency */
+}
+
+html {
+  scroll-behavior: smooth;
+}
