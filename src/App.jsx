@@ -173,20 +173,29 @@ export default function App() {
       </section>
 
      <section id="about" className="relative overflow-hidden px-5 py-24 sm:px-8 lg:px-12">
-<div className="absolute inset-y-0 right-0 hidden w-1/2 lg:block">
+<div className="absolute inset-y-0 right-0 hidden w-[65%] lg:block">
+  <img
+    src={aboutBar}
+    alt="Dark cafe bar interior"
+    className="h-full w-full object-cover grayscale contrast-125 brightness-50 opacity-55"
+    style={{
+      WebkitMaskImage:
+        "linear-gradient(to right, transparent 0%, black 28%, black 100%)",
+      maskImage:
+        "linear-gradient(to right, transparent 0%, black 28%, black 100%)",
+    }}
+  />
   <img
     src={aboutBar}
     alt="Dark cafe bar interior"
     className="h-full w-full object-cover grayscale contrast-125 brightness-50 opacity-45"
   />
-  <div className="absolute inset-0 bg-gradient-to-r from-[#080807] via-[#080807]/65 to-transparent" />
+  <div className="absolute inset-0 from-[#080807] via-[#080807]/35 to-transparent" />
   <div className="absolute inset-0 bg-[#080807]/25" />
 </div>
 
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-          <div className="aspect-[4/5] border border-[#f4efe5]/15 bg-[#f4efe5]/[0.03] p-4 backdrop-blur-md">
-            <div className="h-full border border-[#f4efe5]/10 bg-[linear-gradient(180deg,transparent,rgba(244,239,229,0.09)),repeating-linear-gradient(0deg,rgba(244,239,229,0.09)_0_1px,transparent_1px_22px)]" />
-          </div>
+
 
           <div>
             <p className="mb-6 text-xs uppercase tracking-[0.4em] text-[#f4efe5]/50">
@@ -226,7 +235,9 @@ export default function App() {
         id="visit"
         className="relative px-5 pb-8 pt-20 sm:px-8 lg:px-12"
       >
-        <div className="mx-auto grid max-w-7xl gap-10 border-t border-[#f4efe5]/15 pt-8 md:grid-cols-[1fr_1fr_1fr]">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+  <div className="hidden lg:block" />
+
           <div>
             <h2 className="font-serif text-4xl">Kuro Cafe</h2>
             <p className="mt-4 max-w-xs text-sm leading-7 text-[#f4efe5]/55">
