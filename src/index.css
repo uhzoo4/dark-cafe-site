@@ -7,8 +7,8 @@
 /* Basic glassmorphism style, you might want to adjust specifics */
 .bg-glassmorphism {
   background: rgba(18, 18, 18, 0.4); /* black with transparency */
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(224, 224, 224, 0.1); /* off-white with transparency */
 }
 
