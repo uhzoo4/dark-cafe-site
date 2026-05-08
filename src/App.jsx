@@ -1,22 +1,32 @@
 import React from "react";
 
+import heroTokyo from "./assets/hero-tokyo.jpg";
+import aboutBar from "./assets/about-bar.jpg";
+import espresso from "./assets/espresso.jpg";
+import matcha from "./assets/matcha.jpg";
+import takeaway from "./assets/takeaway.jpg";
+
 const drinks = [
   {
     name: "Midnight Hojicha",
     note: "Roasted tea, oat milk, black sugar smoke",
     price: "12",
+    image: takeaway,
   },
   {
     name: "Ink Drop Espresso",
     note: "Double ristretto, cacao ash, mineral cream",
     price: "10",
+    image: espresso,
   },
   {
     name: "Moonlit Matcha",
     note: "Stone-ground matcha, cold foam, sea salt",
     price: "13",
+    image: matcha,
   },
 ];
+
 
 export default function App() {
   return (
@@ -118,7 +128,24 @@ export default function App() {
                     ${drink.price}
                   </span>
                 </div>
-                <div className="mb-8 h-48 border border-[#f4efe5]/10 bg-[linear-gradient(135deg,rgba(244,239,229,0.02),rgba(244,239,229,0.09)),linear-gradient(90deg,transparent_49%,rgba(244,239,229,0.18)_50%,transparent_51%)] transition duration-300 group-hover:border-[#f4efe5]/30" />
+                <div className="mb-8 h-48 overflow-hidden border border-[#f4efe5]/10">
+  <img
+    src={drink.image}
+    alt={drink.name}
+    className="h-full w-full object-cover grayscale contrast-125 brightness-75 transition duration-500 group-hover:scale-105"
+  />
+  <img
+  src={heroTokyo}
+  alt="Tokyo street at night"
+  className="h-full w-full object-cover grayscale contrast-125 brightness-50"
+/>
+<img
+  src={aboutBar}
+  alt="Dark cafe bar interior"
+  className="h-full w-full object-cover grayscale contrast-125 brightness-75"
+/>
+</div>
+
                 <h3 className="font-serif text-3xl leading-tight">
                   {drink.name}
                 </h3>
