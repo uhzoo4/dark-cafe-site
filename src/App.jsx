@@ -67,7 +67,7 @@ export default function App() {
             <p className="mb-7 text-xs uppercase tracking-[0.44em] text-[#f4efe5]/60">
               Tokyo after rain / espresso after midnight / quiet corners  
             </p>
-            <h1 className="font-serif text-[18vw] leading-[0.82] tracking-normal sm:text-[14vw] lg:text-[8.8vw]">
+           <h1 className="font-serif italic text-[11vw] leading-[0.95] tracking-normal sm:text-[8vw] lg:text-[5.2vw]">
               Quiet coffee drawn in black and off-white, with warm light and space 
               <span className="block italic text-[#f4efe5]/70">
                 dark aesthetics 
@@ -92,7 +92,21 @@ export default function App() {
             <div className="absolute -bottom-5 right-8 h-10 w-32 border border-[#f4efe5]/20 bg-[#080807]/80" />
             <div className="h-full border border-[#f4efe5]/10 bg-[radial-gradient(circle_at_50%_22%,rgba(244,239,229,0.18),transparent_26%),linear-gradient(180deg,rgba(244,239,229,0.08),transparent_38%),linear-gradient(90deg,rgba(244,239,229,0.08)_1px,transparent_1px)] bg-[length:100%_100%,100%_100%,34px_100%]">
               <div className="flex h-full flex-col justify-end p-6">
-                <p className="mb-3 font-serif text-5xl leading-none">黒</p>
+              <div className="relative h-full overflow-hidden border border-[#f4efe5]/10">
+  <img
+    src={heroTokyo}
+    alt="Tokyo street at night"
+    className="h-full w-full object-cover grayscale contrast-125 brightness-50"
+  />
+  <div className="absolute inset-0 bg-[#080807]/35" />
+  <div className="absolute bottom-0 left-0 p-6">
+    <p className="mb-3 font-serif text-5xl leading-none">黒</p>
+    <p className="text-xs uppercase tracking-[0.34em] text-[#f4efe5]/70">
+      Tokyo rain / black coffee / 02:17
+    </p>
+  </div>
+</div>
+
                 <p className="text-xs uppercase tracking-[0.34em] text-[#f4efe5]/55">
                   Hand-pulled espresso / nior room / 02:15
                 </p>
@@ -158,7 +172,17 @@ export default function App() {
         </div>
       </section>
 
-      <section id="about" className="relative px-5 py-24 sm:px-8 lg:px-12">
+     <section id="about" className="relative overflow-hidden px-5 py-24 sm:px-8 lg:px-12">
+<div className="absolute inset-y-0 right-0 hidden w-1/2 lg:block">
+  <img
+    src={aboutBar}
+    alt="Dark cafe bar interior"
+    className="h-full w-full object-cover grayscale contrast-125 brightness-50 opacity-45"
+  />
+  <div className="absolute inset-0 bg-gradient-to-r from-[#080807] via-[#080807]/65 to-transparent" />
+  <div className="absolute inset-0 bg-[#080807]/25" />
+</div>
+
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div className="aspect-[4/5] border border-[#f4efe5]/15 bg-[#f4efe5]/[0.03] p-4 backdrop-blur-md">
             <div className="h-full border border-[#f4efe5]/10 bg-[linear-gradient(180deg,transparent,rgba(244,239,229,0.09)),repeating-linear-gradient(0deg,rgba(244,239,229,0.09)_0_1px,transparent_1px_22px)]" />
@@ -168,7 +192,7 @@ export default function App() {
             <p className="mb-6 text-xs uppercase tracking-[0.4em] text-[#f4efe5]/50">
               About the room
             </p>
-            <h2 className="font-serif text-5xl leading-[0.95] sm:text-7xl lg:text-8xl">
+            <h2 className="font-serif italic text-4xl leading-[1] sm:text-5xl lg:text-6xl">
               Built for silence, shadow, warm and the first bitter sip.
             </h2>
             <div className="mt-10 grid gap-8 border-t border-[#f4efe5]/15 pt-8 md:grid-cols-2">
