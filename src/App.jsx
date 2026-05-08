@@ -1,4 +1,4 @@
-import React from "react";
+import { Analytics } from '@vercel/analytics/react';
 
 import heroTokyo from "./assets/hero-tokyo.jpg";
 import aboutBar from "./assets/about-bar.jpg";
@@ -265,6 +265,7 @@ export default function App() {
           <p>Black coffee / Off-white pages</p>
         </div>
       </footer>
+      <Analytics />
     </main>
   );
 }
