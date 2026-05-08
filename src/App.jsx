@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 import heroTokyo from "./assets/hero-tokyo.jpg";
@@ -31,6 +32,7 @@ const drinks = [
 export default function App() {
   return (
     <main className="min-h-screen bg-[#080807] text-[#f4efe5] selection:bg-[#f4efe5] selection:text-[#080807]">
+      <div className="pointer-events-none fixed inset-0 opacity-[0.05] mix-blend-soft-light bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       <div
         className="fixed inset-0 pointer-events-none opacity-[0.08]"
         style={{
@@ -40,6 +42,7 @@ export default function App() {
       />
 
       <section className="relative min-h-screen overflow-hidden px-5 py-6 sm:px-8 lg:px-12">
+        <div className="pointer-events-none fixed inset-0 opacity-[0.05] mix-blend-soft-light bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
         <nav className="relative z-10 flex items-center justify-between border-b border-[#f4efe5]/15 pb-5 text-xs uppercase tracking-[0.32em]">
           <span className="font-serif text-base normal-case tracking-normal">
             Kuro Cafe
@@ -67,12 +70,20 @@ export default function App() {
             <p className="mb-7 text-xs uppercase tracking-[0.44em] text-[#f4efe5]/60">
               Tokyo after rain / espresso after midnight / quiet corners  
             </p>
-           <h1 className="font-serif italic text-[11vw] leading-[0.95] tracking-normal sm:text-[8vw] lg:text-[5.2vw]">
-              Quiet coffee drawn in black and off-white, with warm light and space 
-              <span className="block italic text-[#f4efe5]/70">
-                dark aesthetics 
-              </span>
-            </h1>
+           <motion.h1
+  initial={{ opacity: 0, y: 80 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 1.4,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className="font-serif italic text-[11vw] leading-[0.95] tracking-normal sm:text-[8vw] lg:text-[5.2vw]"
+>
+  Quiet coffee drawn in black and off-white, with warm light and space
+  <span className="block italic text-[#f4efe5]/70 drop-shadow-[0_0_18px_rgba(255,255,255,0.08)]">
+    dark aesthetics
+  </span>
+</motion.h1>
             <div className="mt-10 flex max-w-2xl flex-col gap-6 border-l border-[#f4efe5]/25 pl-6 sm:flex-row sm:items-end sm:justify-between">
               <p className="text-sm leading-7 text-[#f4efe5]/70 sm:max-w-md">
                 A monochrome kissaten for slow mornings, rain-warm evenings,
