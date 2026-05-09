@@ -106,9 +106,9 @@ export default function App() {
 </div>
         </nav>
 
-        <div className="absolute right-0 top-24 h-[68vh] w-[58vw] border-y border-l border-[#f4efe5]/10 bg-[#f4efe5]/[0.03] backdrop-blur-md sm:right-10 lg:right-16" />
+        <div className="absolute right-0 top-24 h-[68vh] w-[58vw] border-y border-l border-[#f4efe5]/10 bg-[#f4efe5]/3 backdrop-blur-md sm:right-10 lg:right-16" />
         <div className="absolute right-8 top-40 hidden h-[48vh] w-[28vw] border border-[#f4efe5]/20 bg-[#080807] lg:block">
-          <div className="h-full w-full bg-[linear-gradient(115deg,transparent_0%,transparent_45%,rgba(244,239,229,0.14)_46%,transparent_47%),linear-gradient(0deg,rgba(244,239,229,0.08)_1px,transparent_1px)] bg-[length:100%_100%,100%_18px]" />
+          <div className="h-full w-full bg-[linear-gradient(115deg,transparent_0%,transparent_45%,rgba(244,239,229,0.14)_46%,transparent_47%),linear-gradient(0deg,rgba(244,239,229,0.08)_1px,transparent_1px)] bg-size-[100%_95%,90%_18px]" />
         </div>
 
         <div className="relative z-10 grid min-h-[calc(100vh-72px)] items-center gap-12 pt-16 lg:grid-cols-[1.1fr_0.9fr]">
@@ -148,10 +148,10 @@ export default function App() {
             </div>
           </div>
 
-          <div className="relative ml-auto aspect-[3/4] w-full max-w-sm border border-[#f4efe5]/20 bg-[#f4efe5]/[0.04] p-3 shadow-2xl backdrop-blur-md">
+          <div className="relative ml-auto aspect-3/4 w-full max-w-sm border border-[#f4efe5]/20 bg-[#f4efe5]/4 p-3 shadow-2xl backdrop-blur-md">
             <div className="absolute -left-5 top-8 h-24 w-10 border border-[#f4efe5]/20 bg-[#080807]/80" />
             <div className="absolute -bottom-5 right-8 h-10 w-32 border border-[#f4efe5]/20 bg-[#080807]/80" />
-            <div className="h-full border border-[#f4efe5]/10 bg-[radial-gradient(circle_at_50%_22%,rgba(244,239,229,0.18),transparent_26%),linear-gradient(180deg,rgba(244,239,229,0.08),transparent_38%),linear-gradient(90deg,rgba(244,239,229,0.08)_1px,transparent_1px)] bg-[length:100%_100%,100%_100%,34px_100%]">
+            <div className="h-full border border-[#f4efe5]/10 bg-[radial-gradient(circle_at_50%_22%,rgba(244,239,229,0.18),transparent_26%),linear-gradient(180deg,rgba(244,239,229,0.08),transparent_38%),linear-gradient(90deg,rgba(244,239,229,0.08)_1px,transparent_1px)] bg-size-[100%_95%,95%_90%,34px_100%]">
               <div className="flex h-full flex-col justify-end p-6">
               <div className="relative h-full overflow-hidden border border-[#f4efe5]/10">
   <img
@@ -221,7 +221,7 @@ export default function App() {
       <img
         src={drink.image}
         alt={drink.name}
-        className="h-full w-full object-cover grayscale contrast-125 brightness-75 transition duration-[1800ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.08] group-hover:brightness-90"
+        className="h-full w-full object-cover grayscale contrast-125 brightness-75 transition duration-1700ms ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.08] group-hover:brightness-90"
       />
     </div>
 
@@ -270,7 +270,7 @@ export default function App() {
         About the room
       </p>
 
-      <h2 className="font-serif italic text-4xl leading-[1] sm:text-5xl lg:text-6xl">
+      <h2 className="font-serif italic text-4xl leading-none sm:text-5xl lg:text-6xl">
         Built for silence, shadow, and the first bitter sip.
       </h2>
 
