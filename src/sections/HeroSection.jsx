@@ -1,32 +1,105 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect, useCallback } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 
 import heroTokyo from "../assets/hero-tokyo.jpg";
 import { buttonMotion, heroCopy, heroLine } from "../animations/motion";
 import Navbar from "../components/navbar";
 
+/* ── Spring config: heavy, weighted, cinematic ── */
+const PARALLAX_SPRING = { stiffness: 20, damping: 60, mass: 1 };
+
 export default function HeroSection() {
+  const sectionRef = useRef(null);
   const imageColumnRef = useRef(null);
+
+  /* ── Scroll-driven image parallax (existing) ── */
   const { scrollYProgress } = useScroll({
     target: imageColumnRef,
     offset: ["start 0.9", "end 0.1"],
   });
   const imageParallaxY = useTransform(scrollYProgress, [0, 1], ["-2.5%", "2.5%"]);
 
+  /* ── Mouse-driven motion values ── */
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  /* Spring-dampened mouse values — heavy, weighted, slow drift */
+  const springX = useSpring(mouseX, PARALLAX_SPRING);
+  const springY = useSpring(mouseY, PARALLAX_SPRING);
+
+  /* Mouse handler: normalise to -1…1 range from section center */
+  const handleMouseMove = useCallback(
+    (e) => {
+      const rect = sectionRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      const nx = (e.clientX - rect.left) / rect.width - 0.5;  // -0.5 … 0.5
+      const ny = (e.clientY - rect.top) / rect.height - 0.5;
+      mouseX.set(nx * 2);  // -1 … 1
+      mouseY.set(ny * 2);
+    },
+    [mouseX, mouseY]
+  );
+
+  /* Reset on leave — drift back to center */
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(0);
+    mouseY.set(0);
+  }, [mouseX, mouseY]);
+
+  /* Attach listener to section */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    el.addEventListener("mousemove", handleMouseMove, { passive: true });
+    el.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      el.removeEventListener("mousemove", handleMouseMove);
+      el.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [handleMouseMove, handleMouseLeave]);
+
+  /* ── Parallax transforms for decorative framing layers ── */
+  /* Layer 1: large frosted panel — distant depth, barely perceptible */
+  const frame1X = useTransform(springX, [-1, 1], [1.5, -1.5]);
+  const frame1Y = useTransform(springY, [-1, 1], [1, -1]);
+
+  /* Layer 2: editorial grid inset — closer depth, minimal drift */
+  const frame2X = useTransform(springX, [-1, 1], [0.75, -0.75]);
+  const frame2Y = useTransform(springY, [-1, 1], [0.5, -0.5]);
+
   return (
-    <motion.section className="relative min-h-screen overflow-hidden px-5 py-8 sm:px-7 sm:py-10 md:px-8 lg:px-9 lg:py-12 xl:px-10 2xl:px-11">
+    <motion.section
+      ref={sectionRef}
+      className="relative min-h-screen overflow-hidden px-5 py-8 sm:px-7 sm:py-10 md:px-8 lg:px-9 lg:py-12 xl:px-10 2xl:px-11"
+    >
       <Navbar />
 
-      <div className="absolute right-0 top-28 h-[62vh] w-[58vw] border-y border-l border-[#f4efe5]/10 bg-[#f4efe5]/3 backdrop-blur-md sm:right-8 sm:top-32 lg:right-14 lg:top-36" />
-      <div className="absolute right-6 top-44 hidden h-[44vh] w-[28vw] border border-[#f4efe5]/20 bg-[#080807] lg:right-12 lg:top-48 lg:block">
+      {/* ── Decorative framing: Layer 1 — frosted panel with cinematic parallax ── */}
+      <motion.div
+        style={{ x: frame1X, y: frame1Y }}
+        className="absolute right-0 top-28 h-[62vh] w-[58vw] border-y border-l border-[#f4efe5]/10 bg-[#f4efe5]/3 sm:right-8 sm:top-32 lg:right-14 lg:top-36"
+      />
+
+      {/* ── Decorative framing: Layer 2 — editorial grid with cinematic parallax ── */}
+      <motion.div
+        style={{ x: frame2X, y: frame2Y }}
+        className="absolute right-6 top-44 hidden h-[44vh] w-[28vw] border border-[#f4efe5]/20 bg-[#080807] lg:right-12 lg:top-48 lg:block"
+      >
         <div className="h-full w-full bg-[linear-gradient(115deg,transparent_0%,transparent_45%,rgba(244,239,229,0.14)_46%,transparent_47%),linear-gradient(0deg,rgba(244,239,229,0.08)_1px,transparent_1px)] bg-size-[100%_95%,90%_18px]" />
-      </div>
+      </motion.div>
 
       <div className="relative z-10 grid min-h-[calc(100vh-5.75rem)] items-center gap-y-14 gap-x-10 pt-20 sm:min-h-[calc(100vh-6rem)] sm:gap-y-16 sm:pt-24 lg:grid-cols-[1.1fr_0.9fr] lg:gap-x-16 lg:gap-y-12 xl:gap-x-20 2xl:gap-x-24">
         <div className="max-w-6xl">
           <p className="mb-8 max-w-xl text-pretty text-[0.6875rem] uppercase leading-relaxed tracking-[0.32em] text-[#f4efe5]/65 sm:mb-10 sm:text-xs sm:tracking-[0.4em]">
             Tokyo after rain / espresso after midnight / quiet corners
           </p>
+
           <motion.h1
             variants={heroCopy}
             initial="hidden"
@@ -36,9 +109,10 @@ export default function HeroSection() {
             <motion.span variants={heroLine} className="block max-w-[22ch] text-pretty sm:max-w-none">
               Quiet coffee drawn in black and off-white, with warm light and space
             </motion.span>
+
             <motion.span
               variants={heroLine}
-              className="mt-2 block text-pretty text-[0.88em] italic tracking-[0.01em] text-[#f4efe5]/76 drop-shadow-[0_0_14px_rgba(255,255,255,0.05)] sm:mt-3"
+              className="mt-2 block text-pretty text-[0.88em] italic tracking-[0.01em] text-[#f4efe5]/76 sm:mt-3"
             >
               dark aesthetics
             </motion.span>
@@ -60,7 +134,7 @@ export default function HeroSection() {
 
         <div
           ref={imageColumnRef}
-          className="group/img relative mx-auto aspect-3/4 w-full max-w-[min(100%,20rem)] border border-[#f4efe5]/20 bg-[#f4efe5]/4 p-3 shadow-2xl backdrop-blur-md transition-[border-color,box-shadow] duration-[780ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-[#f4efe5]/26 hover:shadow-[0_28px_80px_rgba(0,0,0,0.35)] sm:max-w-sm lg:mx-0 lg:ml-auto lg:max-w-sm"
+          className="group/img relative mx-auto aspect-3/4 w-full max-w-[min(100%,20rem)] border border-[#f4efe5]/20 bg-[#f4efe5]/4 p-3 shadow-2xl transition-[border-color,box-shadow] duration-[780ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-[#f4efe5]/26 hover:shadow-[0_28px_80px_rgba(0,0,0,0.35)] sm:max-w-sm lg:mx-0 lg:ml-auto lg:max-w-sm"
         >
           <div className="absolute -left-4 top-10 h-24 w-9 border border-[#f4efe5]/20 bg-[#080807]/80 sm:-left-5 sm:w-10" />
           <div className="absolute -bottom-4 right-6 h-9 w-28 border border-[#f4efe5]/20 bg-[#080807]/80 sm:-bottom-5 sm:right-8 sm:h-10 sm:w-32" />

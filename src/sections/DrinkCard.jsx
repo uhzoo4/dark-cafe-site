@@ -11,7 +11,7 @@ export default function DrinkCard({ drink, index }) {
       whileInView="show"
       viewport={{ once: true, amount: 0.22 }}
       whileHover={{
-        y: -2.5,
+        y: -1.5,
         transition: { duration: motionDuration.hover, ease: cinematicEase },
       }}
       className="group flex h-full flex-col bg-[#080807] px-6 pb-8 pt-7 transition-[background-color] duration-[780ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#0c0b09] sm:px-8 sm:pb-9 sm:pt-8 md:px-8 md:pb-10 md:pt-9"
@@ -20,7 +20,7 @@ export default function DrinkCard({ drink, index }) {
         <span className="text-[0.6875rem] uppercase tracking-[0.3em] text-[#f4efe5]/48 transition-[color,opacity] duration-[780ms] ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-xs sm:tracking-[0.32em] group-hover:text-[#f4efe5]/56">
           0{index + 1}
         </span>
-        <span className="shrink-0 border border-[#f4efe5]/16 px-3 py-1.5 font-serif text-sm tabular-nums text-[#f4efe5]/72 backdrop-blur-sm transition-[border-color,color,opacity] duration-[780ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-[#f4efe5]/24 group-hover:text-[#f4efe5]/80">
+        <span className="shrink-0 border border-[#f4efe5]/16 px-3 py-1.5 font-serif text-sm tabular-nums text-[#f4efe5]/72 transition-[border-color,color,opacity] duration-[780ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-[#f4efe5]/24 group-hover:text-[#f4efe5]/80">
           ${drink.price}
         </span>
       </div>

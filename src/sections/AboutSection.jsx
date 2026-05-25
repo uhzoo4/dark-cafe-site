@@ -4,11 +4,10 @@ import aboutBar from "../assets/about-bar.jpg";
 import { cinematicEase, motionDuration } from "../animations/motion";
 
 const aboutReveal = {
-  hidden: { opacity: 0, y: 28, filter: "blur(4px)" },
+  hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: motionDuration.section, ease: cinematicEase },
   },
 };

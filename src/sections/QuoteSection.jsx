@@ -3,11 +3,10 @@ import { motion } from "framer-motion";
 import { cinematicEase, motionDuration } from "../animations/motion";
 
 const quoteSectionReveal = {
-  hidden: { opacity: 0, y: 22, filter: "blur(3px)" },
+  hidden: { opacity: 0, y: 12 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: motionDuration.section, ease: cinematicEase },
   },
 };

@@ -15,39 +15,37 @@ export const heroCopy = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.16 },
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
   },
 };
 
 export const heroLine = {
-  hidden: { opacity: 0, y: 56, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: motionDuration.line, ease: cinematicEase },
   },
 };
 
 export const sectionReveal = {
-  hidden: { opacity: 0, y: 32, filter: "blur(5px)" },
+  hidden: { opacity: 0, y: 12 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: motionDuration.section, ease: cinematicEase },
   },
 };
 
 export const cardReveal = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 12 },
   show: (index = 0) => ({
     opacity: 1,
     y: 0,
     transition: {
       duration: motionDuration.card,
       ease: cinematicEase,
-      delay: index * 0.1,
+      delay: index * 0.05,
     },
   }),
 };
