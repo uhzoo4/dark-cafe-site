@@ -9,7 +9,7 @@ import {
 
 import heroTokyo from "../assets/hero-tokyo.jpg";
 import { buttonMotion, heroCopy, heroLine } from "../animations/motion";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar";
 
 /* ── Spring config: heavy, weighted, cinematic ── */
 const PARALLAX_SPRING = { stiffness: 20, damping: 60, mass: 1 };
