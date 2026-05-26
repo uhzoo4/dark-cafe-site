@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { sectionReveal } from "../animations/motion";
 import { drinks } from "../data/drinks";
-import DrinkCard from "./drinkcard";
+import DrinkCard from "./DrinkCard";
 
 export default function MenuSection() {
   return (
